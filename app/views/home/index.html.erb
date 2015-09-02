@@ -1,0 +1,12 @@
+
+<center>
+    <% if user_signed_in? %>
+        <h1> <%=current_user.nickname%>님 환영합니다</h1><br>
+        <a href="/users/sign_out">로그아웃</a>
+        <a href="/home/private_page">마이페이지</a>
+    <%else%>
+        <a href="/users/sign_in">로그인</a>
+        <a href="/users/sign_up">회원가입</a>
+    <%end%>
+</center
+

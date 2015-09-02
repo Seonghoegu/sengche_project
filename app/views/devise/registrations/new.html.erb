@@ -1,0 +1,191 @@
+<center>
+  <h1>야!나와 회원가입을 환영합니다</h1><br/>
+</center>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true) do |f| %>
+  <%= devise_error_messages! %>
+
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <div class="field">
+                <%= f.label '이메일' %><br />
+                <%= f.email_field :email, :class => 'form-control email_tag', :placeholder => 'Email을 입력하세요', autofocus: true %>
+              </div>
+          </div>
+          
+          <div class="panel-body">
+              <div class="field">
+                <%= f.label :'비밀번호' %>
+                <% if @minimum_password_length %>
+                <em>(비밀번호는 최소 <%= @minimum_password_length %>자로 입력 가능합니다)</em>
+                <% end %><br />
+                <%= f.password_field :password, :class => 'form-control', :placeholder => '비밀번호를 입력하세요', autocomplete: "off" %>
+              </div>
+          </div>
+    
+          <div class="panel-body">
+              <div class="field">
+                <%= f.label :'비밀번호 확인' %><br />
+                <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => '비밀번호를 다시 한 번 입력하세요',autocomplete: "off" %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">  
+      <div class="col-md-4">
+      </div>
+    
+      
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-md-6">
+              <div class="field">
+                <%= f.label '이름' %><br />
+                <%= f.text_field :name, :class => 'form-control', :placeholder => '이름을 입력하세요', autofocus: true %>
+              </div>
+            </div>
+
+            <div class="col-md-6">            
+              <div class="field">
+                <%= f.label '닉네임' %><br />
+                <%= f.text_field :nickname,  :class => 'form-control', :placeholder => '닉네임을 입력하세요', autofocus: true %>
+              </div>
+            </div>
+          </div>
+          
+          <div class="panel-body">
+              <div class="field">
+                <%= f.label '자신을 한줄로 표현해주세요' %><br />
+                <%= f.text_field :oneline,  :class => 'form-control', :placeholder => 'ex: 세상의 평화를 위해 헌신하는 남자', autofocus: true %>
+              </div>
+          </div>
+          
+          <div class="panel-body">
+            <div class="field col-md-12">
+              <div class="field col-md-2">
+               <%= f.label '성별' %><br />
+               <%= f.select :sex, [['남','남'],['여','여']],{:prompt => "선택"}%>
+              </div>
+              <div class="field col-md-10">
+              <%= f.label '생년월일' %><br />
+              <%= f.select :birth_year, (Time.zone.now.year - 100)..(Time.zone.now.year), {:prompt => "생년"}, { :style => 'width:100px' }%> 년 &nbsp;
+    		      <%= f.select :birth_month, 1..12, {:prompt => "월"}, { :style => 'width:100px' } %> 월 &nbsp;
+    		      <%= f.select :birth_day, 1..31, {:prompt => "일"}, { :style => 'width:100px' } %> 일
+
+    		      </div>
+            </div>
+          </div>
+          
+          <div class="panel-body">
+              <div class="field">
+                <%= f.label '프로필 업로드' %><br />
+                <%= f.file_field :img,  :class => 'form-control', autofocus: true %>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+    <div class="col-md-4">
+    </div>
+  </div>
+    
+    <div class="row">  
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>자신을 마음껏 표현해주세요.(선택사항)</strong>
+          </div>
+          <div class="panel-body">
+          <%=f.text_area :profile, :class => 'form-control'%>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-4">
+      </div>
+    </div>
+    
+    <div class="row">  
+      <div class="col-md-4">
+      </div>
+    
+    
+    
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          <strong>관심있는 생활체육을 선택하세요.</strong>
+          </div> 
+          <div class="panel-body">
+  	        <%= f.label(:sports, "배드민턴") %>
+  	        <%= f.check_box(:/sports) %> &nbsp;
+  	        <%= f.label(:sports, "러닝") %>
+  	        <%= f.check_box(:sports) %> &nbsp;
+  	        <%= f.label(:sports, "자전거") %>
+  	        <%= f.check_box(:sports) %> &nbsp;
+  	        <%= f.label(:sports, "볼링") %>
+  	        <%= f.check_box(:sports) %>&nbsp;
+  	        <%= f.label(:sports, "탁구") %>
+  	        <%= f.check_box(:sports) %>&nbsp;
+  	        <%= f.label(:sports, "축구") %>
+  	        <%= f.check_box(:sports) %>&nbsp;
+  	        <%= f.label(:sports, "족구") %>
+  	        <%= f.check_box(:sports) %>&nbsp;
+  	        <%= f.label(:sports, "테니스") %>
+  	        <%= f.check_box(:sports) %>&nbsp;
+  	        <%= f.label(:sports, "당구") %>
+  	        <%= f.check_box(:sports) %>&nbsp;    	        
+          </div>  
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+    
+    </div>
+      
+      
+    
+    
+    <div class="row">  
+      <div class="col-md-4">
+      </div>
+      
+      <div class="col-md-4">
+        <div class="actions">
+          <%= f.button "회원가입하기", :class => 'btn btn-info', :style => 'width:100%' %>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+      </div>
+    </div>
+<% end %>
+
+
+<div class="row"> 
+  <div class="col-md-4">
+  </div>
+  
+  <div class="col-md-4">
+    <center>
+      <br>
+      이미 회원가입을 하셨다면? <br>
+      <%= render "devise/shared/links" %>
+    </center>
+  </div>
+  
+  <div class="col-md-4">
+  </div>
+</div>
